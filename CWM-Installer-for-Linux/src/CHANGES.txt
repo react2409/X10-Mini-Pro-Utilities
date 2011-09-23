@@ -1,0 +1,5 @@
+Version 2 (18/09/2011)
+Added check to ask if ROOTed
+
+Version 1 (18/09/2011)
+Initial version

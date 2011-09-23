@@ -1,0 +1,76 @@
+#!/system/bin/busybox sh
+#
+# Unified Chargemon By D4rKn3sSyS
+# corrected by DooMLoRD ;)
+#
+
+	# keychecks
+	cat /dev/input/event0 > /dev/keycheck&
+	sleep 3
+	kill -9 $!
+
+	# checking recovery keychecks/flags
+	if [ -s /dev/keycheck -o -f /data/local/tmp/recovery ]
+	then
+	rm -f /data/local/tmp/recovery
+	# remount rootfs rw
+	mount -o remount,rw rootfs /
+
+	# Umount MTDs
+	umount -l /dev/block/mtdblock1
+	umount -l /dev/block/mtdblock2
+	umount -l /dev/block/mtdblock3
+
+	# Mount recovery partition
+	cd /
+	rm -r /sbin
+	rm -f etc
+	tar -xf /system/bin/recovery.tar
+
+	# Umount /system
+	umount -l /dev/block/mtdblock0
+
+	# chroot
+	chroot / /init
+
+	fi
+
+	# offline charging
+	/system/bin/charger
+
+	# CM & Stock compatibility
+	if [ -f /system/etc/CHANGELOG-CM.txt ]; then
+	# for cyanogenmod
+
+	# remount rootfs rw
+	mount -o remount,rw rootfs /
+	chmod 0777 /dev -R
+	chown 0.2000 /dev/oncrpc -R
+	cd /
+	rm init*
+	rm logo.rle
+	rm default.prop
+	tar -xf /system/bin/ramdisk.tar
+	# nobodyAtall - Fix 
+	mkdir -p /minicm
+	cd /minicm
+	tar -xf /system/bin/ramdisk.tar
+	sync
+	# Umount /system, data and cache
+	umount -l /dev/block/mtdblock0
+	umount /dev/block/mtdblock3
+	umount /dev/block/mtdblock1
+	rmdir /system /data /cache /mnt
+	# Mount /system to /minicm/system
+	/sbin/mount_system
+	sleep 1
+	chroot /minicm /init
+	
+	else 
+	
+	#for stock
+
+	# Continue booting
+	exit
+	
+	fi

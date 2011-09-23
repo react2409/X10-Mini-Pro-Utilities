@@ -1,0 +1,19 @@
+Version 4 (16/09/2011)
+Updated CWM to r5.
+
+Version 3 (14/09/2011)
+Asks if already ROOTed
+If ROOTed only pushes exploit to gain ROOT
+recovery folder renamed to files
+
+Version 2 (11/09/2011)
+Removed tmp folder
+Added section to re-mount as read only after process
+Added reboot at end
+Added busybox
+Added option to root device
+Fixed permissions issues
+Made the output look prettier
+
+Version 1 (10/09/2011)
+Initial version
