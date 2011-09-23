@@ -41,7 +41,8 @@ Original X10 Mini Pro CWM Thread: http://forum.xda-developers.com/showthread.php
 Previous Versions: (Version - Released - Downloads)
 1 - 18-Sept-2011 - N/A
 2 - 18-Sept-2011 - N/A
-3 - 23-Sept-2011 - Current
+3 - 23-Sept-2011 - N/A
+4 - 23-Sept-2011 - Current
 
 Changes:
 See CHANGES.txt

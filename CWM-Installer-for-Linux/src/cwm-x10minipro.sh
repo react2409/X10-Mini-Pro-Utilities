@@ -14,7 +14,7 @@ echo "Press the enter key to continue..."
 read contscr
 
 read -p "Is USB Debugging enabled on your phone? (y/n)" usbdebug
-    case usbdebug in
+    case $usbdebug in
         [Nn]* ) echo "Please turn USB Debugging on. You can find it at:";
                 echo "Settings > Applications > Development > Check 'USB debugging'";
 		echo "Once done run this again.";

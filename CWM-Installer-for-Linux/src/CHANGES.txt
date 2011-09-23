@@ -1,3 +1,7 @@
+Version 4 (23-Sept-2011)
+Fixed question about USB Debugging
+Fixed permissions on ADB
+
 Version 3 (23-Sept-2011)
 Confirmation questions added all the way through
 Removed re-mounting of system to R/O as done when phone reboots
