@@ -1,5 +1,11 @@
-Version 2 (18/09/2011)
+Version 3 (23-Sept-2011)
+Confirmation questions added all the way through
+Removed re-mounting of system to R/O as done when phone reboots
+Updated README.txt to include relevant sections
+Rehosted as GitHub
+
+Version 2 (18-Sept-2011)
 Added check to ask if ROOTed
 
-Version 1 (18/09/2011)
+Version 1 (18-Sept-2011)
 Initial version
