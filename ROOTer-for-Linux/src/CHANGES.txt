@@ -1,0 +1,19 @@
+Version 1 (21-Sept-2011)
+Initial public version
+
+Version b4 (20-Sept-2011)
+Fixed permissions on adb exe (Thanks to kissmyarch)
+Fixed issue where su wasn't working (Bit embarrasing what it was tbh)
+Removed remounting as R/O as phone reboots anyway
+Removed adb restart as not needed
+Removed permission set for Superuser.apk as should be fine
+
+Version b3 (20-Sept-2011)
+Changed adb exe (Thanks for kissmyarch)
+Changed permissions set on su exe
+
+Version b2 (19-Sept-2011)
+Added in busybox
+
+Version b1 (19-Sept-2011)
+Initial beta version
