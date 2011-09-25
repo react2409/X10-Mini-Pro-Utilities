@@ -1,4 +1,9 @@
-Version 1 (21-Sept-2011)
+Version 2 (25-Sept-2011)
+Added a few user input checks
+Removed re-mount as R/O as this is done with phone reboot
+Added extra output where needed
+
+Version 1 (21-Sept-2011) - 11
 Initial public version
 
 Version b4 (20-Sept-2011)

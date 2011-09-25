@@ -1,12 +1,49 @@
-#!/bin/sh
+#!/bin/bash
+#
+# If you edit script then please leave this section intact.
+#
+# ROOTer for Linux was originally created by react2409.
+# It is released on XDA under the username rect2409.
 
-echo "ROOTer for Linux by rect2409."
+echo "ROOTer for Linux by react2409."
 echo "Requirements and credits are listed in the README.txt file."
 echo "Please make sure requirements are met before continuing."
+echo "Remember by using this you understand the risks involved with doing so."
 echo ""
 echo ""
-echo "Press the enter key to continue..."
-read contscr
+
+# Additional safety check to see if you already ROOTed.
+read -p "Is your phone already rooted? (y/n)" rooted
+    case $rooted in
+	[Yy]* ) echo "";
+		echo "You do NOT need to run this script then."
+		echo "This script is now terminating.";
+		exit;;
+        [Nn]* ) echo "";;
+        * ) echo "Please answer y or n";;
+    esac
+
+# Do you wish to continue prompt.
+read -p "Do you wish to continue with the ROOTing? (y/n)" contin
+    case $contin in
+        [Nn]* ) echo "";
+		echo "Okay this script will now terminate";
+                exit;;
+        [Yy]* ) echo "";;
+        * ) echo "Please answer y or n";;
+    esac
+
+# Check for USB debugging.  Without it the script won't work.
+read -p "Is USB Debugging enabled on your phone? (y/n)" usbdebug
+    case $usbdebug in
+        [Nn]* ) echo "Please turn USB Debugging on. You can find it at:";
+                echo "Settings > Applications > Development > Check 'USB debugging'";
+		echo "Once done run this again.";
+                exit;;
+        [Yy]* ) echo "Great lets start the process.";
+     		echo "";;
+        * ) echo "Please answer y or n";;
+    esac
 
 echo "Starting ADB server."
 ./adb/adb start-server
@@ -16,13 +53,13 @@ echo "Wait for phone to be ready."
 ./adb/adb wait-for-device
 echo ""
 
-echo "Push exploit to phone and run."
+echo "Push the exploit to the phone."
 ./adb/adb push files/rageagainstthecage /data/local/tmp/expl
 ./adb/adb shell "chmod 777 /data/local/tmp/expl"
-./adb/adb shell "/data/local/tmp/expl"
 echo ""
 
-echo "Wait for phone to be ready."
+echo "Run the exploit. There may be a delay whilst this is happening."
+./adb/adb shell "/data/local/tmp/expl"
 ./adb/adb wait-for-device
 echo ""
 
@@ -42,10 +79,6 @@ echo "Setting permissions for su."
 ./adb/adb shell "chmod 4755 /system/xbin/su"
 echo "Setting permissions for busybox."
 ./adb/adb shell "chmod 4755 /system/xbin/busybox"
-echo ""
-
-echo "Re-mount system as R/O."
-./adb/adb shell "mount -o ro,remount -t yaffs2 /dev/block/mtdblock0 /system"
 echo ""
 
 echo "Reboot phone."
