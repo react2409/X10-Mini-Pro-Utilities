@@ -1,2 +1,6 @@
+b2 (07-Oct-2011)
+Split each process into seperate files
+Tidied up code in script
+
 b1 (07-Oct-2011)
 Initial beta
